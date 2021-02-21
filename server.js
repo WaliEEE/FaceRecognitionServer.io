@@ -10,14 +10,12 @@ app.use(cors());
 app.use(bodyParser.json());
 /***********************/
 
-/***Database Connection***/
+/***Database Connection Postgre Heroku***/
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: "godofwar3",
-    database: "postgres",
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
 /***********************/
